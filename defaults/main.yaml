@@ -1,0 +1,40 @@
+---
+# defaults file for uwsgi
+
+uwsgi_name: "uwsgi"
+uwsgi_user: ""
+uwsgi_dir_home: ""
+uwsgi_file_load_virtualenvwrapper: "{{ uwsgi_dir_home }}/.pyenvrunrc"
+
+# uwsgi_pip_dependencies:
+#   - name: "uWSGI"
+#     version: "2.0.11.2"
+
+
+# uwsgi_dict:
+#   project: "name project"
+#   base: "app_dir_home"
+#   chdir: "app_dir"
+#   home: "virtualenv_path"
+#   pythonpath: "app_dir"
+#   socket: "app_proxypass"
+#   module: "app_module"
+#   uid: "user"
+#   gid: "user"
+#   master: true
+#   vacuum: true
+#   virtualenv: "virtualenv_path"
+#   max_requests: 20000
+#   processes: 1
+#   threads: 2
+#   enable_threads: true
+#   # http: ":3097"
+#   # touch_reload: "/path/touch/reload"
+#   # harakiri: 30
+#   # harakiri_verbose: True
+#   log_x_forwarded_for: true
+#   # stats: "127.0.0.1:9000"
+#   log_5xx: true
+#   log_slow: 30000
+#   # shared_socket: ":80"
+#   buffer_size: "8096"

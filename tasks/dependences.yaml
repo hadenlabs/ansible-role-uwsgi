@@ -1,0 +1,20 @@
+---
+
+- name: Update package repositories
+  become: true
+  apt:
+    update_cache: True
+  tags:
+    - apt
+    - update_cache
+
+- name: Install uwsgi package dependencies
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  register: install_uwsgi_packages
+  with_items: "{{ _uwsgi_packages | default([]) }}"
+  when: _uwsgi_packages is defined
+  tags:
+    - dependencies
