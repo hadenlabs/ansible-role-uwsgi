@@ -1,0 +1,11 @@
+---
+
+- name: Install uwsgi
+  become: true
+  package:
+    name: "{{ _uwsgi_package_name }}"
+    state: present
+  register: install_uwsgi
+  when: _uwsgi_package_name is defined
+  tags:
+    - uwsgi
