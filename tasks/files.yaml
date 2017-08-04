@@ -1,0 +1,9 @@
+---
+- name: Create files
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+    owner: "{{ item.owner }}"
+  with_items: "{{ _uwsgi_create_files | default({}) }}"
+  when: _uwsgi_create_files is defined

@@ -1,0 +1,23 @@
+---
+
+# vars file for uwsgi
+
+_uwsgi:
+  dir:
+    run: "{{ uwsgi_dir_home }}/run"
+  templates:
+    - src: "uwsgi.ini.j2"
+      dest: "{{ uwsgi_dir_home }}/{{ uwsgi_name }}.ini"
+    - src: "uwsgi.sh.j2"
+      dest: "{{ uwsgi_dir_home }}/uwsgi.sh"
+
+_uwsgi_create_files:
+    - path: "{{ _uwsgi.dir.run }}"
+      state: "directory"
+      owner: "{{ uwsgi_user }}"
+
+_uwsgi_packages:
+    - "libpcre3"
+    - "libpcre3-dev"
+
+_uwsgi_package_name: "uwsgi"
